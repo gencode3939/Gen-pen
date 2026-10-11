@@ -1,39 +1,48 @@
-name: Build and Release Debian Package
+name: Build Debian Package
 
 on:
   push:
-    branches: [ "main" ]
-    tags: [ "v*" ]
+    branches: ["main"]
+    tags: ["v*"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+  workflow_dispatch:
 
 jobs:
   build:
+    name: Build .deb
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # required to publish GitHub Releases on tag pushes
+
     steps:
-      - name: Checkout Source Code
+      - name: Checkout source code
         uses: actions/checkout@v4
 
-      - name: Install Build Dependencies
+      - name: Check syntax (shell & Python)
         run: |
-          sudo apt-get update
-          sudo apt-get install -y dpkg-dev python3 python3-pyqt6
+          for f in build_deb.sh desktop/bin/genpen desktop/bin/genpen-cleaner.sh; do bash -n "$f"; done
+          for f in debian/postinst debian/postrm; do sh -n "$f"; done
+          python3 -m py_compile desktop/app/*.py
 
-      - name: Build Debian Package
+      - name: Build Debian package
+        run: OUTPUT_DIR=dist ./build_deb.sh
+
+      - name: Show package information
         run: |
-          chmod +x build_deb.sh
-          ./build_deb.sh
+          dpkg-deb --info dist/*.deb
+          dpkg-deb --contents dist/*.deb
 
-      - name: Upload Debian Package Artifact
+      - name: Upload package artifact
         uses: actions/upload-artifact@v4
         with:
           name: gen-pen-deb-package
-          path: releases/*.deb
+          path: dist/*.deb
+          if-no-files-found: error
 
-      - name: Create GitHub Release
+      - name: Publish GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
-          files: releases/*.deb
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          files: dist/*.deb
+          generate_release_notes: true

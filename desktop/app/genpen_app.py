@@ -46,7 +46,9 @@ def load_material_font():
         "/usr/lib/genpen/assets/fonts/MaterialIcons-Regular.ttf",
         "/usr/share/fonts/truetype/material-design-icons-iconfont/MaterialIcons-Regular.ttf",
         "/usr/share/fonts/truetype/material-icons/MaterialIcons-Regular.ttf",
-        os.path.join(os.path.dirname(__file__), "assets/fonts/MaterialIcons-Regular.ttf")
+        os.path.join(os.path.dirname(__file__), "assets/fonts/MaterialIcons-Regular.ttf"),
+        # Kaynak koddan çalıştırma: desktop/app/ -> desktop/assets/fonts/
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, "assets", "fonts", "MaterialIcons-Regular.ttf"),
     ]
     for fp in font_paths:
         if os.path.exists(fp):

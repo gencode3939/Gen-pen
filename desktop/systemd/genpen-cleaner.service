@@ -1,6 +1,6 @@
 [Unit]
 Description=Gen Pen Gunluk Gecici Medya Onbellegi Temizleme Servisi
-Documentation=https://github.com/pardus/gen-pen
+Documentation=https://github.com/gencode3939/Gen-pen
 After=local-fs.target
 
 [Service]

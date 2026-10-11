@@ -1,0 +1,9 @@
+# Normalise line endings: shell scripts, systemd units and Debian maintainer
+# scripts must stay LF-only or they break on Linux.
+* text=auto eol=lf
+
+# Binary assets
+*.deb   binary
+*.png   binary
+*.ttf   binary
+*.woff2 binary

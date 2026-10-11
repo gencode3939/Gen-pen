@@ -1,213 +1,311 @@
-# Gen Pen 🖊️
+<div align="center">
 
-**Next-Generation Smartboard Drawing & Mobile Question Transfer System for Pardus 23 GNU/Linux**
+<img src="desktop/assets/icons/hicolor/scalable/apps/genpen.svg" alt="Gen Pen logo" width="112">
 
-[![GitHub Release](https://img.shields.io/github/v/release/gencode3939/Gen-pen?color=blue&logo=github)](https://github.com/gencode3939/Gen-pen/releases)
-[![Platform](https://img.shields.io/badge/Platform-Pardus%2023%20%7C%20Debian%2012%20%7C%20Linux-blue?logo=linux)](https://www.pardus.org.tr/)
-[![Framework](https://img.shields.io/badge/UI-PyQt6%20%7C%20Qt6-green?logo=qt)](https://www.riverbankcomputing.com/software/pyqt/)
-[![Design](https://img.shields.io/badge/Design-Google%20Material%203-4285F4?logo=google)](https://m3.material.io/)
-[![Package](https://img.shields.io/badge/Download-.deb%20(v2.0.0)-D70A53?logo=debian)](https://github.com/gencode3939/Gen-pen/releases/download/v2.0.0/gen-pen_2.0.0-1_all.deb)
-[![Offline](https://img.shields.io/badge/Offline-100%25%20Ready%20(Local%20Fonts)-success)](#features)
-[![License](https://img.shields.io/badge/License-Apache%202.0-orange.svg)](LICENSE)
+# Gen Pen
+
+**Smartboard drawing & mobile question transfer for Pardus 23 ETAP**
+
+Draw edge-to-edge on classroom smartboards and send questions from any phone<br>
+straight onto the board with a simple 6-digit PIN.
+
+[![Version](https://img.shields.io/badge/version-2.0.0-1A73E8)](debian/control)
+[![Build](https://github.com/gencode3939/Gen-pen/actions/workflows/build-deb.yml/badge.svg)](https://github.com/gencode3939/Gen-pen/actions/workflows/build-deb.yml)
+[![Platform](https://img.shields.io/badge/platform-Pardus%2023%20%7C%20Debian%2012-2E3440?logo=debian&logoColor=white)](https://www.pardus.org.tr/)
+[![Python](https://img.shields.io/badge/Python-3-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![PyQt6](https://img.shields.io/badge/UI-PyQt6-41CD52?logo=qt&logoColor=white)](https://www.riverbankcomputing.com/software/pyqt/)
+[![License](https://img.shields.io/badge/license-Apache%202.0-F57C00)](LICENSE)
+
+**English** · [Türkçe](README.tr.md)
+
+[![Download .deb](https://img.shields.io/badge/Download-gen--pen__2.0.0--1__all.deb-D70A53?style=for-the-badge&logo=debian&logoColor=white)](releases/gen-pen_2.0.0-1_all.deb?raw=true)
+
+<br>
+
+<img src="docs/screenshots/smartboard_question_solved.png" alt="Gen Pen: a question sent from a phone, annotated on grid paper" width="860">
+
+</div>
 
 ---
 
-## 📖 Overview
+## Table of contents
 
-**Gen Pen** is a modern, high-performance interactive whiteboard and screen annotation application specifically crafted for **Pardus 23 (ETAP)** smartboards in classrooms and lecture halls. 
+- [About](#about)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Mobile companion](#mobile-companion)
+- [How it works](#how-it-works)
+- [Project structure](#project-structure)
+- [Building the package](#building-the-package)
+- [Privacy & security](#privacy--security)
+- [Troubleshooting](#troubleshooting)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License & acknowledgements](#license--acknowledgements)
 
-It provides an unobstructed, **true edge-to-edge frameless canvas**, an **animated floating dock** with long-press touch invocation, bundled local **Google Material Design 3 icons**, and an **instant mobile question transfer bridge** powered by a secure 6-digit PIN.
+## About
 
-Teachers and students can snap questions from textbooks, crop and enhance contrast directly on their phones, and transmit them straight onto the smartboard canvas in real time with zero pairing hurdles.
+**Gen Pen** is an interactive whiteboard and screen annotation application built
+for the **Pardus 23 ETAP** smartboards used in Turkish classrooms (FATİH
+project). It also runs on Debian 12 and Ubuntu 22.04+.
 
----
+The whole screen becomes a frameless drawing canvas, and every tool lives in a
+single floating dock at the bottom. A companion web app lets teachers and
+students photograph a question from a textbook, crop and sharpen it on their
+phone and send it to the board in seconds — no pairing, cables or app
+installation required.
 
-## 📸 Screenshots Gallery
+## Features
 
-| 1. Fullscreen Canvas & Unified Dock | 2. Floating Pill FAB (Collapsed Mode) |
+**Drawing**
+
+- 🖥️ **Edge-to-edge canvas** — frameless full-screen window covering the whole display, with no title bar or panels.
+- ✏️ **Tools** — pen, calligraphy pen (width reacts to drawing speed), highlighter, laser pointer (trail fades after about a second), eraser and a hand tool for moving inserted images.
+- 📐 **Shapes** — line, arrow, rectangle, ellipse and triangle.
+- 🎨 **Colours & width** — six quick colours, an unlimited colour picker and a 1–48 px width slider.
+- ↩️ **Undo / redo** and **clear board** with confirmation.
+
+**Boards**
+
+- ⬜ **White board** and ⬛ **blackboard** backgrounds.
+- 🔲 **Grid**, 📝 **lined** and 🎼 **music staff** overlays that work on either background.
+
+**Floating dock**
+
+- 🎛️ All controls in one Material 3 style dock.
+- 💊 Collapses into a small **✏️ Gen Pen** pill; **long-press anywhere** (≈ 0.4 s) to bring it back with a ripple animation.
+- 🚪 Touch-friendly confirmation dialogs prevent accidental exits.
+
+**Mobile question transfer**
+
+- 🔢 **6-digit classroom PIN** shown on the dock — a new one on every launch.
+- 📱 Phone web app: camera or gallery → crop, rotate, sharpen text → send.
+- ⚡ Questions appear on the board within seconds, either inserted automatically or via a notification.
+
+**Offline-ready & integrated**
+
+- 🔤 Google **Material Icons** font bundled — the UI needs no CDN or internet connection.
+- 📦 Debian package with application menu entry, full icon set (16–512 px + SVG) and a daily automatic cleanup of received images.
+
+## Screenshots
+
+| Floating dock | Board templates |
 | :---: | :---: |
-| ![Unified Dock](docs/screenshots/smartboard_fullscreen.png) | ![Collapsed Dock](docs/screenshots/smartboard_dock_collapsed.png) |
-| *Edge-to-edge canvas with all tools consolidated into the bottom dock.* | *Zero distractions. Hold down anywhere on screen to animate the dock back up.* |
+| ![Full-screen canvas with the floating dock](docs/screenshots/smartboard_fullscreen.png) | ![Board template menu](docs/screenshots/smartboard_templates.png) |
+| Every tool in a single dock at the bottom of the screen. | White board, blackboard, grid, lined paper and music staff. |
+| **Collapsed dock** | **Exit confirmation** |
+| ![Dock collapsed into a pill](docs/screenshots/smartboard_dock_collapsed.png) | ![Exit confirmation dialog](docs/screenshots/smartboard_exit_dialog.png) |
+| Distraction-free board — long-press anywhere to reopen the dock. | Prevents closing the app by accident on a touchscreen. |
 
-| 3. Smartboard Templates Menu | 4. Real-time Question Annotation |
-| :---: | :---: |
-| ![Templates Menu](docs/screenshots/smartboard_templates.png) | ![Question Solved](docs/screenshots/smartboard_question_solved.png) |
-| *Switch between Whiteboard, Blackboard, Grid, Lined, and Music Staff.* | *Mobile question received via PIN and solved on math grid paper.* |
+## Installation
 
-| 5. Safe Touchscreen Exit Dialog |
-| :---: |
-| ![Exit Dialog](docs/screenshots/smartboard_exit_dialog.png) |
-| *High-quality confirmation modal preventing accidental touchscreen dismissals.* |
+### Requirements
 
----
+| | |
+| :--- | :--- |
+| **Operating system** | Pardus 23 ETAP, Debian 12 (Bookworm), Ubuntu 22.04 or newer |
+| **Runtime** | Python 3 and PyQt6 (installed automatically with the `.deb`) |
+| **Network** | Only needed for the mobile transfer: HTTPS access to `mantledb.sh` |
 
-## ✨ Key Features
-
-### 1. 🖥️ True Frameless Edge-to-Edge Canvas
-- Completely eliminates top header bars, window decorations, and desktop borders.
-- The drawing canvas spans 100% of the display dimensions (1280x800, 1080p, 4K UHD).
-- Inspired by Pardus-Pen and ETA-Pen smartboard specifications.
-
-### 2. 🎛️ Unified Animated Floating Dock (`GenDock`)
-- **All Controls in One Place**: Drawing tools, 6 quick colors, unlimited palette, continuous width slider, board templates, mobile PIN indicator, undo/redo, clear canvas, fullscreen toggle, collapse, and exit.
-- **Fluid Physics Animations**: Slides down into a compact floating pill (`✏️ Gen Pen ^`) with cubic easing (`QEasingCurve.Type.OutCubic`).
-- **Touch Hold (Long-Press) Activation**: Press and hold anywhere on the screen for **380 ms** to trigger an animated ripple ring and bring the dock smoothly back into view.
-
-### 3. 🎨 100% Offline Google Material Icons (Zero CDN Dependency)
-- The official Google Material Icons TrueType font (`MaterialIcons-Regular.ttf`) is bundled directly inside the `.deb` package at `/usr/lib/genpen/assets/fonts/`.
-- The companion mobile app embeds the WOFF2 font inline via base64.
-- High-speed, crisp rendering with zero network latency, guaranteed to work in offline, air-gapped schools.
-
-### 4. 📱 Frictionless 6-Digit PIN Mobile Companion (No QR Codes)
-- Connects smartphones to the smartboard via a simple, memorable **6-Digit PIN** (e.g. `581 604`).
-- Automatically remembers the last entered PIN in browser `localStorage`.
-- Built-in camera capture, gallery picker, touch crop box, and contrast boost filter for crisp textbook legibility.
-- Non-blocking cloud/local synchronization powered by MantleDB v2 REST API.
-
-### 5. 📐 Multi-Disciplinary Board Templates
-- ⚪ **Pure Whiteboard**: Pristine white canvas for standard diagramming and notes.
-- ⚫ **Classic Blackboard**: Matte dark slate background optimized for chalk-like contrast.
-- 🔲 **Math Grid Notebook**: Clean squared grid for geometry, algebra, and physics graphs.
-- 📝 **Lined Notebook**: Ruled lines for handwriting, essays, and language classes.
-- 🎼 **Music Staff**: 5-line musical staves for notation and music theory.
-
-### 6. 🖊️ Natural Drawing & Annotation Tools
-- **Pen**: Precision vector drawing with smoothed cubic Bezier interpolation.
-- **Calligraphy**: Nib-angle chisel stroke engine with dynamic stroke variation.
-- **Highlighter**: Semi-transparent marker with multiply composite blending.
-- **Laser Pointer**: Glowing transient indicator that automatically dissolves after 2.5 seconds.
-- **Segment Eraser**: Fast hit-tested erasing of strokes and elements.
-- **Geometric Shapes**: Draw lines, directional vectors/arrows, rectangles, ellipses, and triangles.
-
-### 7. 🚪 Desktop Menu Integration & Safe Touchscreen Exit
-- Standard FreeDesktop specification files (`genpen.desktop`) installed into `/usr/share/applications/`.
-- Full set of Hicolor icons from 16x16 to 512x512 plus scalable SVG.
-- Dedicated red-accented Exit button on the dock with a touch-friendly confirmation dialog to prevent accidental closures.
-
----
-
-## 🚀 Quick Start & Installation
-
-### Option A: Install via Pre-built Debian Package (Pardus 23 / Debian / Ubuntu)
-
-Download the ready-to-install package from the `releases/` folder or build it locally:
+### Option 1 — Debian package (recommended)
 
 ```bash
-# Install the Debian package
-sudo dpkg -i releases/gen-pen_2.0.0-1_all.deb
-
-# Resolve any missing runtime dependencies automatically
-sudo apt-get install -f
+wget https://github.com/gencode3939/Gen-pen/raw/main/releases/gen-pen_2.0.0-1_all.deb
+sudo apt install ./gen-pen_2.0.0-1_all.deb
 ```
 
-Launch Gen Pen:
-- From the system menu: **Uygulamalar -> Eğitim -> Gen Pen**
-- Or from terminal:
-```bash
-genpen
-```
+`apt` installs all dependencies automatically. Then start Gen Pen from
+**Uygulamalar → Eğitim → Gen Pen** or by running `genpen` in a terminal.
 
-### Option B: Run from Source
+### Option 2 — Run from source
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/gencode3939/Gen-pen.git
 cd Gen-pen
-
-# 2. Install required system dependencies (Debian/Ubuntu/Pardus)
-sudo apt-get update
-sudo apt-get install -y python3 python3-pyqt6 python3-pil python3-requests python3-qrcode
-
-# 3. Launch the desktop application
+sudo apt install python3 python3-pyqt6
 python3 desktop/app/genpen_app.py
 ```
 
----
+## Usage
 
-## 📱 Using the Mobile Companion
+Gen Pen opens in full-screen with the dock at the bottom. From left to right
+the dock contains:
 
-1. Open `mobile/index.html` on your phone (or host it on a local web server / PWA).
-2. Enter the **6-Digit PIN** shown in the smartboard's dock (e.g. `581 604`).
-3. Tap **Fotoğraf Çek** (Take Photo) or **Galeriden Seç** (Choose from Gallery).
-4. Crop the question box and tap **Kontrastı Artır** (Boost Contrast) if lighting is dim.
-5. Tap **Tahtaya Gönder** (Send to Board). The question will instantly appear on the smartboard!
-
----
-
-## ⌨️ Shortcuts & Gestures
-
-| Action | Mouse / Touch / Keyboard |
+| Group | Controls |
 | :--- | :--- |
-| **Open Dock** | **Long-Press** (hold for 380 ms anywhere on screen) or click `✏️ Gen Pen ^` |
-| **Hide Dock** | Click `🔽` on the dock or press <kbd>Esc</kbd> |
-| **Toggle Fullscreen** | Click `⛶` on the dock or press <kbd>F11</kbd> |
-| **Exit Application** | Click `⏻` (Power button) or press <kbd>Ctrl</kbd> + <kbd>Q</kbd> |
-| **Undo Stroke** | Click `↺` or press <kbd>Ctrl</kbd> + <kbd>Z</kbd> |
-| **Redo Stroke** | Click `↻` or press <kbd>Ctrl</kbd> + <kbd>Y</kbd> |
-| **Move Image** | Select Hand tool (`pan_tool`), touch and drag the question box |
+| **Tools** | Hand · Pen · Calligraphy · Highlighter · Laser · Eraser · Shapes ▾ |
+| **Style** | 6 quick colours · Colour picker · Width slider (1–48 px) |
+| **Board** | Templates ▾ · Classroom PIN · Auto-insert ✨ |
+| **Actions** | Undo · Redo · Clear · Full-screen · Hide dock · Exit |
 
----
+| Action | Touch / mouse | Keyboard |
+| :--- | :--- | :---: |
+| Show the dock | Long-press the canvas (≈ 0.4 s) or tap the **✏️ Gen Pen** pill | <kbd>Esc</kbd> |
+| Hide the dock | **⌄** button on the dock | <kbd>Esc</kbd> |
+| Move a question image | Select the **hand tool**, then drag the image | — |
+| Undo / redo | **↶** / **↷** buttons | — |
+| Clear the board | **🗑** button (asks for confirmation) | — |
+| Show the PIN in large type | Tap the **PIN** button | — |
+| Full-screen ↔ window | **⛶** button | <kbd>F11</kbd> |
+| Exit | **⏻** button (asks for confirmation) | <kbd>Ctrl</kbd> + <kbd>Q</kbd> |
 
-## 📂 Repository Structure
+## Mobile companion
 
-```
-genpen/
-├── .github/
-│   └── workflows/
-│       └── build-deb.yml          # Automated CI/CD Debian package build workflow
-├── desktop/                       # Desktop application source
-│   ├── app/
-│   │   ├── genpen_app.py          # Main PyQt6 smartboard application
-│   │   └── genpen_mantle_bridge.py# MantleDB cloud sync worker
-│   ├── assets/
-│   │   ├── fonts/
-│   │   │   └── MaterialIcons-Regular.ttf # Local offline Google Material font
-│   │   └── icons/                 # Hicolor vector and raster icons (16px to 512px)
-│   ├── bin/
-│   │   ├── genpen                 # Standard binary launcher script
-│   │   └── genpen-cleaner.sh      # Cache cleanup script
-│   ├── systemd/                   # Systemd ephemeral storage cleaner unit & timer
-│   └── genpen.desktop             # FreeDesktop standard desktop entry
-├── mobile/                        # Offline-first mobile web companion (PWA)
-│   ├── index.html                 # Standalone web app with embedded Material Icons
-│   ├── manifest.json              # PWA manifest
-│   ├── sw.js                      # Service Worker for offline caching
-│   └── assets/fonts/              # WOFF2 Material Icons
-├── debian/                        # Debian packaging specifications
-│   ├── control                    # Package metadata & dependencies
-│   ├── postinst                   # Desktop database & icon cache update trigger
-│   └── postrm                     # Clean uninstallation script
-├── docs/                          # Technical documentation & screenshots
-│   ├── ARCHITECTURE.md            # Zero-mock architecture & REST API details
-│   ├── PARDUS_INTEGRATION.md      # Pardus 23 ETAP integration guide
-│   └── screenshots/               # Verified UI screenshots
-├── releases/
-│   └── gen-pen_2.0.0-1_all.deb    # Pre-built installable Debian package
-├── build_deb.sh                   # One-click script to build .deb from source
-├── LICENSE                        # Apache License 2.0
-├── .gitignore                     # Git ignore rules
-└── README.md                      # English documentation
-```
+The companion is a single static page in [`mobile/`](mobile/) — no app store
+installation needed.
 
----
-
-## 🛠️ Building the Debian Package
-
-To rebuild the installable `.deb` package at any time:
+**1. Make it available to phones** — host the `mobile/` folder on any static
+web host. For example, once GitHub Pages is enabled for this repository it is
+available at `https://gencode3939.github.io/Gen-pen/mobile/`. For a quick test
+on the local network:
 
 ```bash
-chmod +x build_deb.sh
-./build_deb.sh
+python3 -m http.server 8000 --directory mobile
+# then open http://<computer-ip>:8000 on the phone
 ```
 
-The resulting package will be output to `releases/gen-pen_2.0.0-1_all.deb`.
+**2. Send a question**
 
----
+1. Enter the **6-digit PIN** shown on the board's dock (the phone remembers it).
+2. Tap **Kamerayı Aç ve Soruyu Çek** (take a photo) or **Galeriden Soru Seç** (choose from the gallery).
+3. Adjust the crop box. Use **90° Döndür** to rotate and **Netleştir (Yazı)** to make printed text clearer.
+4. Tap **Tahtaya Gönder** — the question appears on the board within seconds.
 
-## 📄 License & Attribution
+> [!TIP]
+> Adding `?pin=581604` to the companion URL pre-fills the PIN — handy for
+> sharing a link or QR code with the class at the start of a lesson.
 
-This project is open source and licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for full details.
+## How it works
 
-- Designed for the **Pardus GNU/Linux** ecosystem and Fatih Smartboard Project (ETAP).
-- Icons provided by [Google Material Design](https://fonts.google.com/icons).
-- Real-time synchronization powered by [MantleDB](https://mantledb.sh).
+```mermaid
+sequenceDiagram
+    participant Phone as Phone (mobile companion)
+    participant Relay as MantleDB relay
+    participant Board as Smartboard (Gen Pen)
+    Board->>Board: Show a random 6-digit PIN
+    Phone->>Relay: POST photo to genpen-pin-PIN
+    loop every 1.2 s
+        Board->>Relay: Check genpen-pin-PIN
+    end
+    Relay-->>Board: New photo
+    Board->>Board: Save to cache and place on the canvas
+```
+
+The phone and the board never connect to each other directly: both talk to the
+[MantleDB](https://mantledb.sh) REST API over HTTPS, so there is nothing to
+pair and no shared network is needed. See
+[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full technical design and
+[docs/PARDUS_INTEGRATION.md](docs/PARDUS_INTEGRATION.md) for system integration
+details.
+
+## Project structure
+
+```text
+Gen-pen/
+├── .github/workflows/
+│   └── build-deb.yml            # CI: builds the .deb, publishes releases for v* tags
+├── debian/                      # Package metadata & maintainer scripts
+│   ├── control
+│   ├── postinst
+│   └── postrm
+├── desktop/                     # Smartboard application
+│   ├── app/
+│   │   ├── genpen_app.py        # Main PyQt6 application
+│   │   └── genpen_mantle_bridge.py  # Standalone MantleDB bridge (console test tool)
+│   ├── assets/
+│   │   ├── fonts/               # Material Icons (TTF)
+│   │   └── icons/hicolor/       # App icon: 16–512 px PNG + scalable SVG
+│   ├── bin/
+│   │   ├── genpen               # Launcher, installed to /usr/bin
+│   │   └── genpen-cleaner.sh    # Daily cache cleanup script
+│   ├── systemd/                 # User service + timer for the cleanup
+│   └── genpen.desktop           # Application menu entry
+├── docs/
+│   ├── ARCHITECTURE.md          # Technical design
+│   ├── PARDUS_INTEGRATION.md    # Installation & system integration
+│   └── screenshots/
+├── mobile/                      # Phone companion (static web app)
+│   ├── index.html
+│   ├── manifest.json
+│   ├── sw.js
+│   └── assets/fonts/            # Material Icons (WOFF2)
+├── releases/
+│   └── gen-pen_2.0.0-1_all.deb  # Pre-built package
+├── build_deb.sh                 # Builds the .deb from source
+├── LICENSE
+├── README.md
+└── README.tr.md
+```
+
+## Building the package
+
+```bash
+./build_deb.sh                    # -> releases/gen-pen_<version>_all.deb
+OUTPUT_DIR=dist ./build_deb.sh    # -> custom output directory
+```
+
+The script only needs `dpkg-deb` (pre-installed on every Debian-based system).
+Package name and version are read from [`debian/control`](debian/control), so a
+release only requires bumping `Version:` there.
+
+**Continuous integration** — every push and pull request to `main` builds the
+package on GitHub Actions and uploads it as the `gen-pen-deb-package` artifact.
+Pushing a version tag also publishes a GitHub Release with the `.deb` attached:
+
+```bash
+git tag v2.0.0
+git push origin v2.0.0
+```
+
+## Privacy & security
+
+- Photos are relayed through **MantleDB, a third-party service**, over HTTPS.
+- The PIN is a **room code, not a password**: anyone who knows it can send an
+  image to the board while the session is running. A new PIN is generated on
+  every launch.
+- Received images are stored in `~/.cache/genpen/incoming/` and deleted
+  automatically after one day (when installed from the `.deb`).
+- Drawings are kept in memory only and are never uploaded.
+- Please do not send personal data (faces, names, student numbers) through the
+  mobile transfer.
+
+## Troubleshooting
+
+| Problem | Solution |
+| :--- | :--- |
+| Icons appear as empty boxes or letters | The Material Icons font was not found. Reinstall the package, or run the source version from the repository so that `desktop/assets/fonts/` is available. |
+| Questions from the phone never arrive | Check that the PIN matches (it changes on every launch) and that **both** devices can reach `https://mantledb.sh`. Filtered school networks may need to allow this domain. |
+| The dock has disappeared | Long-press anywhere on the board or press <kbd>Esc</kbd>. |
+| `dpkg` reports missing dependencies | Run `sudo apt-get install -f`, or install with `sudo apt install ./gen-pen_2.0.0-1_all.deb`. |
+| Gen Pen is listed twice in the menu | Both `genpen.desktop` and `tr.org.genpen.desktop` are installed — a known issue (see [Roadmap](#roadmap)). |
+
+## Roadmap
+
+- [ ] Save and export the board (PNG / PDF)
+- [ ] Stylus pressure support via `QTabletEvent`
+- [ ] Honour `--mode=white` / `--mode=black` from the menu quick actions
+- [ ] Keyboard shortcuts for undo / redo (<kbd>Ctrl</kbd> + <kbd>Z</kbd> / <kbd>Ctrl</kbd> + <kbd>Y</kbd>)
+- [ ] Installable mobile PWA (link `manifest.json`, register `sw.js`, add app icons)
+- [ ] List Gen Pen only once in application menus
+
+## Contributing
+
+Contributions are welcome!
+
+1. Fork the repository and create a branch: `git checkout -b feature/my-change`
+2. Make your changes — please test them on Pardus 23 or Debian 12 if possible.
+3. Build and install the package to verify: `./build_deb.sh && sudo apt install ./releases/gen-pen_*.deb`
+4. Open a pull request describing what you changed and why.
+
+Bug reports and feature ideas are welcome in
+[Issues](https://github.com/gencode3939/Gen-pen/issues).
+
+## License & acknowledgements
+
+Gen Pen is released under the **[Apache License 2.0](LICENSE)**.
+
+- Built for the [Pardus GNU/Linux](https://www.pardus.org.tr/) ecosystem and the ETAP smartboards of the FATİH project; inspired by Pardus-Pen and ETA-Pen.
+- UI icons: [Material Icons](https://fonts.google.com/icons) by Google, Apache License 2.0.
+- Mobile transfer relay: [MantleDB](https://mantledb.sh).

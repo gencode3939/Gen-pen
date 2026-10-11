@@ -13,14 +13,16 @@ venv/
 *.jsc
 
 # Debian package build artifacts
+# (releases/*.deb is intentionally tracked; CI builds go to dist/)
 *.deb
+!releases/*.deb
+dist/
 debian/files
 debian/*.substvars
 debian/gen-pen/
 debian/tmp/
-!releases/*.deb
 
-# Operating Systems & Editors
+# Operating systems & editors
 .DS_Store
 Thumbs.db
 .idea/
