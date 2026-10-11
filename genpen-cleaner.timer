@@ -1,0 +1,12 @@
+[Unit]
+Description=Gen Pen Gece Yarisi Otomatik Dosya Temizleme Zamanlayicisi
+Documentation=https://github.com/pardus/gen-pen
+
+[Timer]
+# Her gece saat 00:00'da tetiklenir
+OnCalendar=*-*-* 00:00:00
+Persistent=true
+Unit=genpen-cleaner.service
+
+[Install]
+WantedBy=timers.target

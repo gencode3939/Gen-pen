@@ -1,0 +1,10 @@
+[Unit]
+Description=Gen Pen Gunluk Gecici Medya Onbellegi Temizleme Servisi
+Documentation=https://github.com/pardus/gen-pen
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/genpen/genpen-cleaner.sh
+StandardOutput=journal
+StandardError=journal

@@ -1,0 +1,12 @@
+Package: gen-pen
+Version: 2.0.0-1
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Gencode <bilgi@pardus.org.tr>
+Homepage: https://github.com/gencode3939/Gen-pen
+Depends: python3, python3-pyqt6, python3-qrcode, python3-pil, python3-requests
+Description: Next-Gen Smartboard & Screen Annotation System for Pardus 23
+ Gen Pen is a modern interactive whiteboard tool featuring an edge-to-edge
+ canvas, animated floating dock, 6-digit PIN mobile question transfer,
+ and bundled Google Material Design 3 icons.

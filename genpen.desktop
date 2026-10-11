@@ -1,0 +1,26 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Gen Pen
+GenericName=Akıllı Tahta ve Ekran Çizim Aracı
+GenericName[en]=Smartboard & Screen Annotation Tool
+Comment=Pardus 23 İçin Basınca Duyarlı Akıllı Tahta ve Mobil Fotoğraf Aktarım Sistemi
+Comment[en]=Next-generation smartboard drawing and mobile question transfer system for Pardus 23
+Exec=/usr/bin/genpen %F
+Icon=genpen
+Terminal=false
+Categories=Education;Graphics;Utility;
+Keywords=pen;tahta;cizim;whiteboard;fatih;etkilesimli;smartboard;drawing;annotation;
+StartupNotify=true
+MimeType=image/png;image/jpeg;application/pdf;
+Actions=Whiteboard;Blackboard;
+
+[Desktop Action Whiteboard]
+Name=Beyaz Tahta Modu
+Name[en]=Whiteboard Mode
+Exec=/usr/bin/genpen --mode=white
+
+[Desktop Action Blackboard]
+Name=Kara Tahta Modu
+Name[en]=Blackboard Mode
+Exec=/usr/bin/genpen --mode=black

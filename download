@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# PyQt / Qt
+*.qmlc
+*.jsc
+
+# Debian package build artifacts
+*.deb
+debian/files
+debian/*.substvars
+debian/gen-pen/
+debian/tmp/
+!releases/*.deb
+
+# Operating Systems & Editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+*.log
+/tmp/
